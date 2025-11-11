@@ -6,6 +6,8 @@
   <meta name="description" content="Portafolio personal de Juan Pablo Cateriano">
   <title>Juan Pablo Cateriano</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -14,14 +16,13 @@
     }
 
     body {
-      background-color: #0f172a;
+      background: linear-gradient(135deg, #0f172a, #0ea5e9);
       color: #f8fafc;
-      line-height: 1.6;
       scroll-behavior: smooth;
     }
 
     header {
-      background-color: #1e293b;
+      background-color: rgba(15, 23, 42, 0.9);
       padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -29,6 +30,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      backdrop-filter: blur(5px);
     }
 
     header h1 {
@@ -40,17 +42,27 @@
       color: #f1f5f9;
       margin-left: 1.5rem;
       text-decoration: none;
-      transition: color 0.3s ease;
+      font-weight: 600;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     nav a:hover {
-      color: #38bdf8;
+      color: #0ea5e9;
+      transform: rotate(-5deg) scale(1.1);
     }
 
     section {
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .hero {
@@ -59,25 +71,24 @@
     }
 
     .hero img {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #38bdf8;
+      border: 4px solid #38bdf8;
       margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeIn 1.5s ease-in-out forwards;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
+    .hero img:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 20px #38bdf8;
     }
 
     .hero h2 {
       font-size: 2.2rem;
       margin-bottom: 0.5rem;
-      animation: fadeIn 2s ease-in-out forwards;
+      color: #e0f2fe;
     }
 
     .hero p {
@@ -94,64 +105,56 @@
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .btn:hover {
       background-color: #0ea5e9;
+      transform: scale(1.1) rotate(-3deg);
     }
 
-    .gustos-lista {
+    .gustos-lista, .contactos-lista {
       margin-top: 1.5rem;
       list-style: none;
       padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
     }
 
-    .gustos-lista li {
-      background-color: #1e293b;
-      margin-bottom: 0.8rem;
+    .gustos-lista li, .contactos-lista li {
+      background-color: rgba(15, 23, 42, 0.8);
       padding: 1rem;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
     }
 
-    .gustos-lista li:hover {
-      transform: translateX(8px);
-    }
-
-    .contactos-lista {
-      list-style: none;
-      margin-top: 1rem;
-      padding: 0;
-    }
-
-    .contactos-lista li {
-      background-color: #1e293b;
-      margin-bottom: 0.8rem;
-      padding: 1rem;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .contactos-lista li:hover {
-      transform: translateX(8px);
+    .gustos-lista li:hover, .contactos-lista li:hover {
+      transform: translateY(-5px) scale(1.05) rotate(-1deg);
+      box-shadow: 0 5px 15px rgba(0, 234, 255, 0.5);
     }
 
     .contactos-lista a {
       color: #38bdf8;
       text-decoration: none;
       font-weight: bold;
+      display: inline-block;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
     .contactos-lista a:hover {
-      text-decoration: underline;
+      color: #0ea5e9;
+      transform: scale(1.1) rotate(5deg);
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      background-color: #1e293b;
+      background-color: rgba(15, 23, 42, 0.9);
       color: #94a3b8;
+      backdrop-filter: blur(5px);
     }
 
     footer a {
@@ -184,55 +187,62 @@
   <section class="hero">
     <img src="perfil.jpg" alt="Foto de Juan Pablo Cateriano">
     <h2>¡Hola! Soy Juan Pablo Cateriano 👋</h2>
-    <p>Apasionado por la programación, el arte, la creatividad y el aprendizaje constante.</p>
+    <p>INTP | Apasionado por programación, videojuegos indie y música variada 🎮🎵</p>
   </section>
 
   <section id="sobre-mi">
     <h2>Sobre mí</h2>
     <p>
-      Soy una persona curiosa y reflexiva, me gusta entender cómo funcionan las cosas
-      y darles un toque propio. Disfruto combinar lo técnico con lo emocional, ya sea
-      programando, escribiendo o creando ideas nuevas.
+      Curioso y reflexivo, disfruto mezclar lo técnico con lo creativo. Me interesa
+      la programación, el diseño de juegos, historias profundas y música de todo tipo.
     </p>
   </section>
 
   <section id="gustos">
     <h2>Mis gustos</h2>
     <ul class="gustos-lista">
-      <li>🎮 Crear juegos 2D con estética tipo *pixel art* (inspirado en Hollow Knight o Katana Zero).</li>
-      <li>📚 Analizar historias con profundidad psicológica y simbolismo, como *Omori* o *Dentro del bosque*.</li>
-      <li>💻 Aprender sobre programación, inteligencia artificial y diseño de sistemas.</li>
-      <li>🎧 Escuchar música mientras trabajo, especialmente bandas sonoras y lo-fi.</li>
-      <li>✍️ Escribir relatos o artículos con un toque poético y filosófico.</li>
+      <li>🎮 Videojuegos indie: Nine Sols, Hollow Knight, Castlevania, Cuphead, Hyper Light Drifter</li>
+      <li>🎵 Música: Jazz, J-pop (Ado, Natori, YASOBI) y otros géneros</li>
+      <li>🧠 MBTI: INTP</li>
+      <li>💻 Programación, desarrollo de videojuegos y diseño creativo</li>
+      <li>📚 Historias profundas y simbólicas como Omori o Dentro del bosque</li>
     </ul>
   </section>
 
   <section id="contacto">
     <h2>Contacto</h2>
-    <p>¿Quieres charlar o colaborar en algo creativo?  
-       Puedes escribirme o seguirme en mis redes:</p>
-    <p>
-      <a href="https://github.com/AkiyamaKoi" target="_blank">GitHub</a> |
-      <a href="https://www.linkedin.com/in/juan-pablo-cateriano-justo-987b64385" target="_blank">LinkedIn</a> |
-      <a href="mailto:juanpablocateriano@gmail.com">Correo</a>
-    </p>
+    <ul class="contactos-lista">
+      <li><a href="https://github.com/juanpablocateriano" target="_blank">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/juan-pablo-cateriano-987b64385" target="_blank">LinkedIn</a></li>
+      <li><a href="mailto:juanpablocateriano@gmail.com">Correo</a></li>
+    </ul>
   </section>
 
   <section id="red">
     <h2>Red de contactos</h2>
-    <p>Personas con las que aprendo, comparto ideas y colaboro:</p>
     <ul class="contactos-lista">
       <li><a href="https://linkedin.com/in/ecuadrosv" target="_blank">👨‍🏫 Prof. E. Cuadros</a></li>
-      <!-- Agrega aquí a tus compañeros cuando tengas sus enlaces -->
-      <!-- Ejemplo:
-      <li><a href="https://linkedin.com/in/nombre-de-compañero" target="_blank">💻 Nombre del compañero</a></li>
-      -->
+      <!-- Aquí puedes añadir a tus compañeros cuando tengas sus links -->
     </ul>
   </section>
 
   <footer>
     <p>© 2025 Juan Pablo Cateriano — “El código también puede ser arte.”</p>
   </footer>
+
+  <script>
+    // Animar las secciones al hacer scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
 
