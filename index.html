@@ -31,6 +31,14 @@
       color: var(--cyan);
       scroll-behavior: smooth;
       line-height: 1.6;
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header {
@@ -225,6 +233,7 @@
     </ul>
   </section>
 
+  <!-- Lista completa de compañeros -->
   <section id="companeros">
     <h2>Compañeros</h2>
     <ul class="grid">
